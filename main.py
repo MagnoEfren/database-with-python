@@ -1,3 +1,8 @@
+# @autor: Magno Efren
+# https://www.youtube.com/c/MagnoEfren
+
+
+
 import sys
 from GUI import *
 from conexionBD import*
