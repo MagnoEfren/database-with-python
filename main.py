@@ -7,7 +7,6 @@ import sys
 from GUI import *
 from conexionBD import*
 from PyQt5.QtWidgets import QTableWidgetItem
-import time
 
 class MiApp(QtWidgets.QMainWindow):
 	def __init__(self):
