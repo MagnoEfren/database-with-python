@@ -1,8 +1,6 @@
 # @autor: Magno Efren
 # https://www.youtube.com/c/MagnoEfren
 
-
-
 import sys
 from GUI import *
 from conexionBD import*
@@ -158,10 +156,6 @@ class MiApp(QtWidgets.QMainWindow):
 
 		else:
 			self.ui.borrar_ok.setText("SE ELIMINO")
-
-
-
-
 
 
 if __name__ == "__main__":
