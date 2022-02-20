@@ -8,8 +8,6 @@ class Registro_datos():
                                             user = 'root',
                                             password ='admin')
 
-
-
     def inserta_producto(self,codigo, nombre, modelo, precio, cantidad):
         cur = self.conexion.cursor()
         sql='''INSERT INTO productos (CODIGO, NOMBRE, MODELO, PRECIO, CANTIDAD) 
@@ -17,15 +15,12 @@ class Registro_datos():
         cur.execute(sql)
         self.conexion.commit()    
         cur.close()
-
-
     def buscar_productos(self):
         cursor = self.conexion.cursor()
         sql = "SELECT * FROM productos " 
         cursor.execute(sql)
         registro = cursor.fetchall()
         return registro
-
 
     def busca_producto(self, nombre_producto):
         cur = self.conexion.cursor()
@@ -35,11 +30,6 @@ class Registro_datos():
         cur.close()     
         return nombreX 
 
-
-
-
-
-
     def elimina_productos(self,nombre):
         cur = self.conexion.cursor()
         sql='''DELETE FROM productos WHERE NOMBRE = {}'''.format(nombre)
@@ -48,10 +38,6 @@ class Registro_datos():
         self.conexion.commit()    
         cur.close()
         return a   
-
-
-
-
 
     def actualiza_productos(self, codigo, nombre, modelo, precio, cantidad):
         cur = self.conexion.cursor()
