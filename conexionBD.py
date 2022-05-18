@@ -1,13 +1,11 @@
 import mysql.connector
 
 class Registro_datos():
-
     def __init__(self):
         self.conexion = mysql.connector.connect( host='localhost',
                                             database ='base_datos', 
                                             user = 'root',
                                             password ='admin')
-
     def inserta_producto(self,codigo, nombre, modelo, precio, cantidad):
         cur = self.conexion.cursor()
         sql='''INSERT INTO productos (CODIGO, NOMBRE, MODELO, PRECIO, CANTIDAD) 
@@ -48,5 +46,3 @@ class Registro_datos():
         self.conexion.commit()    
         cur.close()
         return a  
-
- 
