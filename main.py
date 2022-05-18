@@ -6,6 +6,7 @@ from GUI import *
 from conexionBD import*
 from PyQt5.QtWidgets import QTableWidgetItem
 
+
 class MiApp(QtWidgets.QMainWindow):
 	def __init__(self):
 		super().__init__()
@@ -13,13 +14,11 @@ class MiApp(QtWidgets.QMainWindow):
 		self.ui.setupUi(self)
 
 		self.datosTotal = Registro_datos()
-
 		self.ui.bt_refrescar.clicked.connect(self.m_productos)
 		self.ui.bt_agregar.clicked.connect(self.insert_productos)
 		self.ui.bt_buscar.clicked.connect(self.buscar_producto)
 		self.ui.bt_borrar.clicked.connect(self.eliminar_producto)
 		self.ui.bt_actualizar.clicked.connect(self.modificar_productos)
-
 		
 		self.ui.tabla_productos.setColumnWidth(0,98)
 		self.ui.tabla_productos.setColumnWidth(1,100)
@@ -39,8 +38,6 @@ class MiApp(QtWidgets.QMainWindow):
 		self.ui.tabla_buscar.setColumnWidth(3,98)
 		self.ui.tabla_buscar.setColumnWidth(4,98)
 
-
-
 	def m_productos(self):	
 		datos = self.datosTotal.buscar_productos()
 		i = len(datos)
@@ -55,7 +52,6 @@ class MiApp(QtWidgets.QMainWindow):
 			self.ui.tabla_productos.setItem(tablerow,4,QtWidgets.QTableWidgetItem(row[5]))
 			tablerow +=1
 
-
 	def insert_productos(self):
 		codigo = self.ui.codigoA.text() 
 		nombre = self.ui.nombreA.text()
@@ -69,8 +65,6 @@ class MiApp(QtWidgets.QMainWindow):
 		self.ui.modeloA.clear()
 		self.ui.precioA.clear()
 		self.ui.cantidadA.clear()
-
-
 
 	def modificar_productos(self):
 		id_producto = self.ui.id_producto.text() 
@@ -100,15 +94,9 @@ class MiApp(QtWidgets.QMainWindow):
 			elif act == 0:
 				self.ui.id_buscar.setText("ERROR")
 			else:
-				self.ui.id_buscar.setText("INCORRECTO")
-
-
-
-			
+				self.ui.id_buscar.setText("INCORRECTO")		
 		else:
 			self.ui.id_buscar.setText("NO EXISTE")
-
-
 
 	def buscar_producto(self):
 		nombre_producto = self.ui.codigoB.text()
@@ -126,10 +114,6 @@ class MiApp(QtWidgets.QMainWindow):
 			self.ui.tabla_buscar.setItem(tablerow,3,QtWidgets.QTableWidgetItem(row[4]))
 			self.ui.tabla_buscar.setItem(tablerow,4,QtWidgets.QTableWidgetItem(row[5]))
 			tablerow +=1
-
-
-
-
 
 	def eliminar_producto(self):
 		eliminar = self.ui.codigo_borrar.text()
@@ -157,12 +141,8 @@ class MiApp(QtWidgets.QMainWindow):
 		else:
 			self.ui.borrar_ok.setText("SE ELIMINO")
 
-
 if __name__ == "__main__":
      app = QtWidgets.QApplication(sys.argv)
      mi_app = MiApp()
      mi_app.show()
      sys.exit(app.exec_())		
-
-
-
