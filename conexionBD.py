@@ -24,25 +24,24 @@ class Registro_datos():
         cur = self.conexion.cursor()
         sql = "SELECT * FROM productos WHERE NOMBRE = {}".format(nombre_producto)
         cur.execute(sql)
-        nombreX = cur.fetchall()
+        nombrex = cur.fetchall()
         cur.close()     
-        return nombreX 
+        return nombrex
 
     def elimina_productos(self,nombre):
         cur = self.conexion.cursor()
         sql='''DELETE FROM productos WHERE NOMBRE = {}'''.format(nombre)
         cur.execute(sql)
-        a = cur.rowcount
+        nom = cur.rowcount
         self.conexion.commit()    
         cur.close()
-        return a   
-
+        return nom   
     def actualiza_productos(self, codigo, nombre, modelo, precio, cantidad):
         cur = self.conexion.cursor()
         sql ='''UPDATE productos SET  CODIGO =' {}' , MODELO = '{}', PRECIO = '{}', CANTIDAD = '{}'
         WHERE NOMBRE = '{}' '''.format(codigo,  modelo, precio, cantidad, nombre)
         cur.execute(sql)
-        a = cur.rowcount
+        act = cur.rowcount
         self.conexion.commit()    
         cur.close()
-        return a  
+        return act  
