@@ -6,7 +6,6 @@ from GUI import *
 from conexionBD import*
 from PyQt5.QtWidgets import QTableWidgetItem
 
-
 class MiApp(QtWidgets.QMainWindow):
 	def __init__(self):
 		super().__init__()
@@ -137,7 +136,6 @@ class MiApp(QtWidgets.QMainWindow):
 			self.ui.borrar_ok.setText("NO EXISTE")
 		elif resp == 0:
 			self.ui.borrar_ok.setText("NO EXISTE")
-
 		else:
 			self.ui.borrar_ok.setText("SE ELIMINO")
 
@@ -145,4 +143,4 @@ if __name__ == "__main__":
      app = QtWidgets.QApplication(sys.argv)
      mi_app = MiApp()
      mi_app.show()
-     sys.exit(app.exec_())		
+     sys.exit(app.exec_())	
