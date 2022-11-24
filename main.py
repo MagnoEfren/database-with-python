@@ -1,6 +1,5 @@
 # @autor: Magno Efren
 # https://www.youtube.com/c/MagnoEfren
-
 import sys
 from GUI import *
 from conexionBD import*
@@ -50,7 +49,6 @@ class MiApp(QtWidgets.QMainWindow):
 			self.ui.tabla_productos.setItem(tablerow,3,QtWidgets.QTableWidgetItem(row[4]))
 			self.ui.tabla_productos.setItem(tablerow,4,QtWidgets.QTableWidgetItem(row[5]))
 			tablerow +=1
-
 	def insert_productos(self):
 		codigo = self.ui.codigoA.text() 
 		nombre = self.ui.nombreA.text()
@@ -71,15 +69,12 @@ class MiApp(QtWidgets.QMainWindow):
 		nombreXX = self.datosTotal.busca_producto(id_producto)
 
 		if nombreXX != None:
-
 			self.ui.id_buscar.setText("ACTUALIZAR")
-
 			codigoM = self.ui.codigo_actualizar.text() 
 			nombreM = self.ui.nombre_actualizar.text()
 			modeloM = self.ui.modelo_actualizar.text()
 			precioM = self.ui.precio_actualizar.text()
 			cantidadM = self.ui.cantidad_actualizar.text()
-
 			act = self.datosTotal.actualiza_productos(codigoM,nombreM , modeloM, precioM, cantidadM)
 			if act == 1:
 				self.ui.id_buscar.setText("ACTUALIZADO")				
@@ -89,7 +84,6 @@ class MiApp(QtWidgets.QMainWindow):
 				self.ui.precio_actualizar.clear()
 				self.ui.cantidad_actualizar.clear()
 				self.ui.id_producto.clear()
-
 			elif act == 0:
 				self.ui.id_buscar.setText("ERROR")
 			else:
@@ -117,11 +111,9 @@ class MiApp(QtWidgets.QMainWindow):
 	def eliminar_producto(self):
 		eliminar = self.ui.codigo_borrar.text()
 		eliminar = str("'"+ eliminar + "'")
-
 		resp = (self.datosTotal.elimina_productos(eliminar))
 		datos = self.datosTotal.buscar_productos()
 		i = len(datos)
-
 		self.ui.tabla_borrar.setRowCount(i)
 		tablerow = 0
 		for row in datos:
@@ -131,7 +123,6 @@ class MiApp(QtWidgets.QMainWindow):
 			self.ui.tabla_borrar.setItem(tablerow,3,QtWidgets.QTableWidgetItem(row[4]))
 			self.ui.tabla_borrar.setItem(tablerow,4,QtWidgets.QTableWidgetItem(row[5]))
 			tablerow +=1
-
 		if resp == None:
 			self.ui.borrar_ok.setText("NO EXISTE")
 		elif resp == 0:
