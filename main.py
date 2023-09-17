@@ -23,13 +23,11 @@ class MiApp(QtWidgets.QMainWindow):
 		self.ui.tabla_productos.setColumnWidth(2,98)
 		self.ui.tabla_productos.setColumnWidth(3,98)
 		self.ui.tabla_productos.setColumnWidth(4,98)
-
 		self.ui.tabla_borrar.setColumnWidth(0,98)
 		self.ui.tabla_borrar.setColumnWidth(1,100)
 		self.ui.tabla_borrar.setColumnWidth(2,98)
 		self.ui.tabla_borrar.setColumnWidth(3,98)
 		self.ui.tabla_borrar.setColumnWidth(4,98)
-
 		self.ui.tabla_buscar.setColumnWidth(0,98)
 		self.ui.tabla_buscar.setColumnWidth(1,100)
 		self.ui.tabla_buscar.setColumnWidth(2,98)
